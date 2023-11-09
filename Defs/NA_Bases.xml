@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingCateoryDef>
+		<defName>AmmoShitpost</defName>
+		<label>Nuff's Shitpost Ammos</label>
+		<parent>AmmoRifles</parent>
+		<iconPath>UI/Icons/ThingCategories/CaliberRifle</iconPath>
+	</ThingCateoryDef>
+</Defs>

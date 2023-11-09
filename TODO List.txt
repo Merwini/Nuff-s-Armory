@@ -1,0 +1,14 @@
+﻿TODO List:
+
+Void Chicken Launcher
+	Fire a projectile that spawns a VOID chicken on impact
+	Ammo is made by combining chicken eggs and flake
+
+Get Over Here!
+	Fires a (beam?) that pulls target to firer
+
+Hookshot from Legend of Zelda Ocarina of Time
+	Pulls firer to target
+
+Elephant Gun
+	Spawns a hostile elephant at map edge that will attempt to path to the target on impact
