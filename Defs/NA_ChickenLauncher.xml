@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<DamageDef Name="VoidChicken">
+		<defName>VoidChicken</defName>
+		<label>chicken</label>
+		<workerClass>Nuff.Armory.NA_DamageWorker_Chicken</workerClass>
+		<externalViolence>true</externalViolence>
+		<deathMessage>{0} has been chickened to death.</deathMessage>
+		<hediff>Crush</hediff>
+		<hediffSkin>Bruise</hediffSkin>
+		<hediffSolid>Crack</hediffSolid>
+		<harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+		<impactSoundType>Blunt</impactSoundType>
+		<armorCategory>Blunt</armorCategory>
+		<overkillPctToDestroyPart>0.4~1.0</overkillPctToDestroyPart>
+		<buildingDamageFactor>0</buildingDamageFactor>
+		<soundExplosion>Pawn_Chicken_Angry</soundExplosion>
+	</DamageDef>
+
+	<ThingDef ParentName="BaseNAGun">
+		<defName>NA_ChickenGun</defName>
+		<label>void chicken launcher</label>
+		<description>Launches a void chicken egg at an unsuspecting target.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/RocketLauncher</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<statBases>
+			<Mass>8</Mass>
+			<RangedWeapon_Cooldown>2.43</RangedWeapon_Cooldown>
+			<SightsEfficiency>1</SightsEfficiency>
+			<ShotSpread>0.15</ShotSpread>
+			<SwayFactor>1.8</SwayFactor>
+			<Bulk>10</Bulk>
+			<WorkToMake>39500</WorkToMake>
+		</statBases>
+		<costList>
+			<Steel>85</Steel>
+			<Plasteel>40</Plasteel>
+			<ComponentIndustrial>7</ComponentIndustrial>
+			<Chemfuel>10</Chemfuel>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+			</skillRequirements>
+			<researchPrerequisite>CE_AdvancedLaunchers</researchPrerequisite>
+		</recipeMaker>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>1.0</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_NA_Chicken</defaultProjectile>
+				<warmupTime>1.1</warmupTime>
+				<range>40</range>
+				<burstShotCount>0</burstShotCount>
+				<soundCast>Shot_IncendiaryLauncher</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>14</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>6</magazineSize>
+				<reloadTime>4</reloadTime>
+				<ammoSet>AmmoSet_NA_Chicken</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>SuppressFire</aiAimMode>
+			</li>
+		</comps>
+
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<weaponTags>
+			<li>EliteGun</li>
+		</weaponTags>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.16,1.16</DrawSize>
+				<DrawOffset>0.1,-0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_NA_Chicken</defName>
+		<label>Void Chicken Eggs</label>
+		<ammoTypes>
+			<Ammo_NA_Chicken>Bullet_NA_Chicken</Ammo_NA_Chicken>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+
+	<CombatExtended.AmmoCategoryDef>
+		<defName>NA_VoidChicken</defName>
+		<label>void chicken</label>
+		<description>A round that spawns a live void chicken on impact.</description>
+		<advanced>true</advanced>
+	</CombatExtended.AmmoCategoryDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="SmallAmmoBase">
+		<defName>Ammo_NA_Chicken</defName>
+		<label>Void Chicken Egg</label>
+		<graphicData>
+			<texPath>Things/Item/Resource/AnimalProductRaw/EggBirdSmall</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>60</MarketValue>
+		</statBases>
+		<ammoClass>NA_VoidChicken</ammoClass>
+	</ThingDef>
+
+	<RecipeDef>
+		<defName>MakeAmmo_NA_Chicken</defName>
+		<label>make void chicken eggs</label>
+		<description>Craft a dozen void chicken eggs.</description>
+		<jobString>Making void chicken eggs.</jobString>
+		<unfinishedThingDef>UnfinishedAmmo</unfinishedThingDef>
+		<conceptLearned>CE_AmmoCrafting</conceptLearned>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+		<workSkill>Crafting</workSkill>
+		<recipeUsers>
+			<li>DrugLab</li>
+		</recipeUsers>
+		<soundWorking>Recipe_Drug</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Flake</li>
+					</thingDefs>
+				</filter>
+				<count>50</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>EggChickenUnfertilized</li>
+						<li>EggChickenFertilized</li>
+					</thingDefs>
+				</filter>
+				<count>12</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Flake</li>
+				<li>EggChickenUnfertilized</li>
+				<li>EggChickenFertilized</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_NA_Chicken>12</Ammo_NA_Chicken>
+		</products>
+		<researchPrerequisite>PsychiteRefining</researchPrerequisite>
+		<workAmount>9600</workAmount>
+	</RecipeDef>
+
+	<ThingDef ParentName="BaseBulletCE">
+		<defName>Bullet_NA_Chicken</defName>
+		<graphicData>
+			<texPath>Things/Item/Resource/AnimalProductRaw/EggBirdSmall/EggSmall_a</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<speed>25</speed>
+			<damageDef>VoidChicken</damageDef>
+			<damageAmountBase>1</damageAmountBase>
+			<armorPenetrationSharp>1000</armorPenetrationSharp>
+			<armorPenetrationBlunt>1000</armorPenetrationBlunt>
+			<explosionRadius>0.1</explosionRadius>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>NA_VoidChicken</defName>
+		<label>void chicken</label>
+		<description>Holy shit.</description>
+		<statBases>
+			<MoveSpeed>6.9</MoveSpeed>
+			<MarketValue>400</MarketValue>
+			<LeatherAmount>0</LeatherAmount>
+			<ComfyTemperatureMin>-50</ComfyTemperatureMin>
+			<ComfyTemperatureMax>500</ComfyTemperatureMax>
+			<ArmorRating_Sharp>5.6</ArmorRating_Sharp>
+			<ArmorRating_Blunt>31</ArmorRating_Blunt>
+			<ArmorRating_Heat>2</ArmorRating_Heat>
+			<MeleeDodgeChance>0.23</MeleeDodgeChance>
+			<MeleeCritChance>0.20</MeleeCritChance>
+			<MeleeParryChance>0.11</MeleeParryChance>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggUnfertilizedDef>Ammo_NA_Chicken</eggUnfertilizedDef>
+				<eggFertilizedDef>Ammo_NA_Chicken</eggFertilizedDef>
+				<eggFertilizationCountMax>1</eggFertilizationCountMax>
+				<eggLayIntervalDays>5</eggLayIntervalDays>
+				<eggCountRange>1</eggCountRange>
+			</li>
+		</comps>
+		<race>
+			<body>Bird</body>
+			<baseHungerRate>0.14</baseHungerRate>
+			<baseBodySize>0.5</baseBodySize>
+			<baseHealthScale>8.0</baseHealthScale>
+			<foodType>CarnivoreAnimalStrict</foodType>
+			<trainability>Intermediate</trainability>
+			<nameOnTameChance>1</nameOnTameChance>
+			<wildness>0.60</wildness>
+			<manhunterOnTameFailChance>0.50</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>1.00</manhunterOnDamageChance>
+			<lifeExpectancy>2</lifeExpectancy>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBabyTiny</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Chick_Call</soundWounded>
+					<soundDeath>Pawn_Chick_Call</soundDeath>
+					<soundCall>Pawn_Chick_Call</soundCall>
+					<soundAngry>Pawn_Chick_Call</soundAngry>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.12</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.2</minAge>
+					<soundWounded>Pawn_Chicken_Wounded</soundWounded>
+					<soundDeath>Pawn_Chicken_Death</soundDeath>
+					<soundCall>Pawn_Chicken_Call</soundCall>
+					<soundAngry>Pawn_Chicken_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+			<headPosPerRotation>
+				<li>(0.0, 0, 0.24)</li>
+				<li>(0.25, 0, 0.18)</li>
+				<li>(0.0, 0, 0.07)</li>
+				<li>(-0.25, 0, 0.18)</li>
+			</headPosPerRotation>
+		</race>
+		<tradeTags>
+			<li>AnimalExotic</li>
+		</tradeTags>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>void claws</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>7</power>
+				<cooldownTime>1.19</cooldownTime>
+				<linkedBodyPartsGroup>Feet</linkedBodyPartsGroup>
+				<armorPenetrationSharp>3</armorPenetrationSharp>
+				<armorPenetrationBlunt>4.06</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>void beak</label>
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>12</power>
+				<cooldownTime>1.59</cooldownTime>
+				<linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+				<armorPenetrationBlunt>10.860</armorPenetrationBlunt>
+				<armorPenetrationSharp>3.5</armorPenetrationSharp>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>15</power>
+				<cooldownTime>2.19</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>5.625</armorPenetrationBlunt>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Birdlike</bodyShape>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>NA_VoidChickenKind</defName>
+		<label>void chicken</label>
+		<race>NA_VoidChicken</race>
+		<combatPower>300</combatPower>
+		<lifeStages>
+			<li>
+				<label>chick</label>
+				<bodyGraphicData>
+					<texPath>Things/Pawn/Animal/Chicken/Chicken</texPath>
+					<drawSize>0.67</drawSize>
+					<color>(223,219,108)</color>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/Chicken/Dessicated_Chicken</texPath>
+					<drawSize>0.67</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<labelMale>cockerel</labelMale>
+				<bodyGraphicData>
+					<texPath>Things/Pawn/Animal/Chicken/Chicken</texPath>
+					<drawSize>1</drawSize>
+					<color>(200,150,85)</color>
+				</bodyGraphicData>
+				<femaleGraphicData>
+					<texPath>Things/Pawn/Animal/Chicken/Chicken</texPath>
+					<drawSize>1</drawSize>
+				</femaleGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/Chicken/Dessicated_Chicken</texPath>
+					<drawSize>1</drawSize>
+				</dessicatedBodyGraphicData>
+				<femaleDessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/Chicken/Dessicated_Chicken</texPath>
+					<drawSize>1</drawSize>
+				</femaleDessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Pawn/Animal/Chicken/Chicken</texPath>
+					<drawSize>1.25</drawSize>
+					<color>(200,150,85)</color>
+					<shadowData>
+						<volume>(0.3, 0.4, 0.3)</volume>
+						<offset>(0,0,-0.05)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<femaleGraphicData>
+					<texPath>Things/Pawn/Animal/Chicken/Chicken</texPath>
+					<drawSize>1.25</drawSize>
+				</femaleGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/Chicken/Dessicated_Chicken</texPath>
+					<drawSize>1.25</drawSize>
+				</dessicatedBodyGraphicData>
+				<femaleDessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/Chicken/Dessicated_Chicken</texPath>
+					<drawSize>1.25</drawSize>
+				</femaleDessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+</Defs>

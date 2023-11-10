@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<ThingDef ParentName="BaseGun">
+	<ThingDef ParentName="BaseNAGun">
 		<defName>NA_DSSYI</defName>
 		<label>don't stand still you idiot</label>
 		<description>Are you really just going to stand there, in one spot? Are you stupid or something? If you get hit by this gun, you have no one to blame but yourself.</description>
@@ -10,14 +10,8 @@
 			<texPath>Things/Item/Equipment/WeaponRanged/BoltActionRifle</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
-		<weaponClasses>
-			<li>RangedHeavy</li>
-		</weaponClasses>
-		<weaponTags>
-			<li>NuffsArmory</li>
-		</weaponTags>
 		<statBases>
-			<WorkToMake>69420</WorkToMake>
+			<WorkToMake>16900</WorkToMake>
 			<SightsEfficiency>1.0</SightsEfficiency>
 			<ShotSpread>0.00</ShotSpread>
 			<SwayFactor>0.00</SwayFactor>
@@ -26,9 +20,13 @@
 			<RangedWeapon_Cooldown>1.05</RangedWeapon_Cooldown>
 		</statBases>
 		<costList>
-			<Steel>100</Steel>
+			<Steel>200</Steel>
 			<ComponentIndustrial>5</ComponentIndustrial>
+			<WoodLog>20</WoodLog>
 		</costList>
+		<recipeMaker>
+			<researchPrerequisite>PrecisionRifling</researchPrerequisite>
+		</recipeMaker>
 		<verbs>
 			<li Class="CombatExtended.VerbPropertiesCE">
 				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
@@ -92,6 +90,13 @@
 		</modExtensions>
 
 	</ThingDef>
+	
+	<ThingCateoryDef>
+		<defName>AmmoSlowGun</defName>
+		<label>Super Slow Round</label>
+		<parent>AmmoRifles</parent>
+		<iconPath>UI/Icons/ThingCategories/CaliberRifle</iconPath>
+	</ThingCateoryDef>
 
 	<CombatExtended.AmmoSetDef>
 		<defName>AmmoSet_NA_DSSYI</defName>
@@ -106,6 +111,7 @@
 		<graphicData>
 			<texPath>Things/Ammo/Rifle/FMJ/FMJ_a</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2.0,2.0)</drawSize>
 		</graphicData>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<damageDef>Bomb</damageDef>

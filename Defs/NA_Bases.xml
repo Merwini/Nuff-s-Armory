@@ -1,9 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<ThingCateoryDef>
-		<defName>AmmoShitpost</defName>
-		<label>Nuff's Shitpost Ammos</label>
-		<parent>AmmoRifles</parent>
-		<iconPath>UI/Icons/ThingCategories/CaliberRifle</iconPath>
-	</ThingCateoryDef>
+	<ThingDef Name="BaseNAGun" Abstract="True" ParentName="BaseGun">
+		<recipeMaker>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Smith</soundWorking>
+			<recipeUsers>
+				<li>TableMachining</li>
+			</recipeUsers>
+			<unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
+			<researchPrerequisite>Gunsmithing</researchPrerequisite>
+		</recipeMaker>
+		<generateAllowChance>0.01</generateAllowChance>
+		<generateCommonality>0.01</generateCommonality>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<weaponTags>
+			<li>NuffsArmory</li>
+		</weaponTags>
+	</ThingDef>
 </Defs>

@@ -7,8 +7,8 @@
     <ProjectGuid>{365668D8-985D-44E0-B62F-EB7286F464D3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Nuff_s_Armory</RootNamespace>
-    <AssemblyName>RimWorld Template</AssemblyName>
+    <RootNamespace>Nuff.Armory</RootNamespace>
+    <AssemblyName>NuffArmory</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -17,7 +17,7 @@
     <DebugSymbols>false</DebugSymbols>
     <DebugType>none</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>Assemblies\</OutputPath>
+    <OutputPath>..\..\..\..\..\Program Files %28x86%29\Steam\steamapps\common\RimWorld\Mods\Nuff%27s Armory\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -49,11 +49,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Template.cs" />
+    <Compile Include="Source\NA_DamageWorker_Chicken.cs" />
+    <Compile Include="Source\NA_DefOf.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="About\About.xml" />
+    <Content Include="Defs\NA_ChickenLauncher.xml" />
     <Content Include="Defs\NA_DSSYI.xml" />
     <Content Include="Defs\NA_Bases.xml" />
     <Content Include="TODO List.txt" />

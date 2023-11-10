@@ -6,11 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Verse;
 
-namespace Nuff_s_Armory
+namespace Nuff.Armory
 {
-    [StaticConstructorOnStartup]
-    public partial class Base
+    [DefOf]
+    public class NA_DefOf
     {
-
+        public static ThingDef NA_VoidChicken;
+        public static PawnKindDef NA_VoidChickenKind;
     }
 }
